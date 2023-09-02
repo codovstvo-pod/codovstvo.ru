@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "681999794134",
+    "project_id": "nothern-merge",
+    "storage_bucket": "nothern-merge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681999794134:android:1dc6056ae37b6a7008ee77",
+        "android_client_info": {
+          "package_name": "codovstvo.nothernmerge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681999794134-aq6604ochk19q0bd7m44quaitf1ljaes.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLxkvLb4aMhF5woRdNg8TnJu1vy92EnCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681999794134-aq6604ochk19q0bd7m44quaitf1ljaes.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

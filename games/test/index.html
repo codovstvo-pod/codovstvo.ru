@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Nothern Merge</title>
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/gamescore-unity.js"></script>
+  <script>
+    var _unityAwaiter = {};
+    _unityAwaiter.ready = new Promise((resolve, reject) => {
+      _unityAwaiter.done = resolve;
+      _unityAwaiter.abort = reject;
+    });
+    window.onGSInit = async (gs) => {
+
+
+      await _unityAwaiter.ready;
+      window.GameScore = new GameScoreUnity(gs, unityI);
+    };
+  </script>
+  <style type="text/css">
+    #loading {
+      position: relative;
+      max-width: max-content;
+    }
+
+    #progress-bar-backgroundImage {
+      width: 30vw;
+      height: 100%;
+    }
+
+    #progress-bar {
+      position: absolute;
+      top: 47.0%;
+      left: 15.7%;
+      max-width: calc(100% - 30.9%);
+      height: 9%;
+      background-color: green;
+      border-radius: 20px;
+      transition: 5s width;
+    }
+
+    #progress-container {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media only screen and (max-width: 1040px) {
+      #progress-bar-backgroundImage {
+        width: 70vw;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      #progress-bar-backgroundImage {
+        width: 90vw;
+      }
+    }
+  </style>
+
+  <!-- >>> replace with your gamescore load script here <<< -->
+  <script async
+    src="https://gs.eponesh.com/sdk/game-score.js?projectId=2592&publicToken=rB0oEviz5zSJWrQ8r5Szis9trS4MwOwE&callback=onGSInit"></script>
+  <!-- >>> replace with your gamescore load script here <<< -->
+
+  <script
+    type="text/javascript">!function () { var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = 'https://vk.com/js/api/openapi.js?169', t.onload = function () { VK.Retargeting.Init("VK-RTRG-1647446-gPRuU"), VK.Retargeting.Hit() }, document.head.appendChild(t) }();</script>
+  <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1647446-gPRuU" style="position:fixed; left:-999px;"
+      alt="" /></noscript>
+      
+</head>
+
+<body class="dark">
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas"
+      style="width: 100%; height: 100%; background-image: url(./TemplateData/Loading.png); background-size: cover; background-position: center center; position: absolute; top: 0px; left: 0px;"></canvas>
+  </div>
+
+  <div class="fullscreen"><img src="./TemplateData/Loading.png" width="38" height="38" alt="Fullscreen"
+      title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+  <div id="loading-cover" style="display:none;">
+    <div id="unity-loading-bar">
+      <div id="unity-progress-bar-empty" style="display: none;">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+      <div class="spinner"></div>
+    </div>
+    <div class="loading-title">Идет загрузка. Пожалуйста, не закрывайте игру</div>
+  </div>
+
+  <div id="fullscreenBlockOrientation">
+    <div
+      style="width: 30%; height: 30%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background-position: center center; background-repeat: no-repeat; background-size: contain; background-image: url(./TemplateData/orientation.png);">
+    </div>
+  </div>
+
+  <script>
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/test.loader.js";
+    const config = {
+      dataUrl: buildUrl + "/test.data.unityweb",
+      frameworkUrl: buildUrl + "/test.framework.js.unityweb",
+      codeUrl: buildUrl + "/test.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "codovstvo",
+      productName: "Nothern Merge",
+      productVersion: "3.1",
+    };
+
+    const container = document.querySelector("#unity-container");
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingCover = document.querySelector("#loading-cover");
+    const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const spinner = document.querySelector('.spinner');
+    const fullscreen = document.querySelector(".fullscreen");
+
+    // if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    //   container.className = "unity-mobile";
+    //   config.devicePixelRatio = 1;
+    // }
+
+    loadingCover.style.display = "";
+    fullscreen.style.display = "none";
+
+    const script = document.createElement("script");
+    var unityI = null;
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        spinner.style.display = "none";
+        progressBarEmpty.style.display = "";
+        progressBarFull.style.width = `${100 * progress}%`;
+      }).then((unityInstance) => {
+        _unityAwaiter.done(unityInstance);
+        unityI = unityInstance;
+        loadingCover.style.display = "none";
+      }).catch((message) => {
+        _unityAwaiter.abort(message);
+        alert(message);
+      });
+    };
+    document.body.appendChild(script);
+
+    document.addEventListener("pointerdown", () => {
+      container.focus();
+      window.focus();
+      canvas.focus();
+    });
+
+    window.getDatas = function (params) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://codovstvo.ru/back/data/get?" + params, true);
+      xhr.send();
+      xhr.onload = function () {
+        if (xhr.responseText) {
+          if (typeof xhr.responseText !== 'string') {
+            data = JSON.stringify(xhr.responseText)
+            unityI.SendMessage('Plugins', 'OnGetGameDataCompletedSuccess', data)
+          } else {
+            unityI.SendMessage('Plugins', 'OnGetGameDataCompletedSuccess', xhr.responseText)
+          }
+        } else {
+          unityI.SendMessage('Plugins', 'OnGetGameDataCompletedSuccess', '')
+        }
+      }
+    }
+
+    window.fullScreenOn = function () {
+      document.documentElement.webkitRequestFullscreen()
+    }
+
+    window.fullScreenOff = function () {
+      document.webkitCancelFullScreen()
+    }
+
+    window.getReferer = function () {
+      let url = new URL(window.location.href)
+      if (url.searchParams.has('referrer')) {
+        return url.searchParams.get('referrer')
+      }
+      if (url.searchParams.has('referer')) {
+        return url.searchParams.get('referer')
+      }
+      return 'unknown'
+    }
+    
+  </script>
+</body>
+
+</html>
