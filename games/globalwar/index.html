@@ -116,10 +116,11 @@
 <script async
     src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
 <script>
+    var gps
     window.onGPInit = async (gp) => {
-        await gp.player.ready;
-        await gp.ads.showPreloader();
-        console.log("-------------" + gp.language)
+        gps = gp
+        await gps.player.ready;
+        console.log("-------------" + gps.language)
     };
 </script>
 
