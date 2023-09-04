@@ -116,12 +116,12 @@
 <script async
     src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
 <script>
-    var gps
+    var gp
     var isReady = false
     window.onGPInit = async (gp) => {
-        gps = gp
-        gps.player.on('ready', () => { isReady = true })
-        await gps.player.ready;
+        gp = gp
+        gp.player.on('ready', () => { isReady = true })
+        await gp.player.ready;
     };
 </script>
 
