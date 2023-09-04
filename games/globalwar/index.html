@@ -119,11 +119,9 @@
     var gps
     var isReady = false
     window.onGPInit = async (gp) => {
-        console.log('----')
         gps = gp
-        gps.player.on('ready', () => { isReady = true; console.log('123 init') })
+        gps.player.on('ready', () => { isReady = true })
         await gps.player.ready;
-        console.log('-------------')
     };
 </script>
 
