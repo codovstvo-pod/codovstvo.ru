@@ -117,10 +117,13 @@
     src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
 <script>
     var gps
+    // var isReay = false
     window.onGPInit = async (gp) => {
+        console.log('----')
         gps = gp
         await gps.player.ready;
-        console.log("-------------" + gps.language)
+        gps.player.on('ready', () => { isReay = true; console.log('123 init') })
+        console.log('-------------')
     };
 </script>
 
