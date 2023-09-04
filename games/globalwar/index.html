@@ -121,8 +121,8 @@
     window.onGPInit = async (gp) => {
         console.log('----')
         gps = gp
-        await gps.player.ready;
         gps.player.on('ready', () => { isReady = true; console.log('123 init') })
+        await gps.player.ready;
         console.log('-------------')
     };
 </script>
