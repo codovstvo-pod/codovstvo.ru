@@ -123,6 +123,10 @@
         gs.player.on('ready', () => { isReady = true })
         await gs.player.ready;
     };
+
+    window.onresize = () => {
+        console.log(`resize : ${window.innerWidth} , ${window.innerHeight}`)
+    }
 </script>
 
 </html>
