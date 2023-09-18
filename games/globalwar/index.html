@@ -125,6 +125,7 @@
     };
 
     window.onresize = () => {
+        document.getElementById('GameCanvas').setAttribute("style", "width:" + window.innerWidth + "px").setAttribute("style", "height:" + window.innerHeight + "px");
         console.log(`resize : ${window.innerWidth} , ${window.innerHeight}`)
     }
 </script>
