@@ -123,9 +123,6 @@
         gs.player.on('ready', () => { isReady = true })
         await gs.player.ready;
 
-        gs.on("pause", () => {
-            WebConnector.pauseGame()
-        })
     };
 
     var htmlHeight = window.innerWidth
