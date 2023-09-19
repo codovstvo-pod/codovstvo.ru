@@ -123,15 +123,14 @@
         gs.player.on('ready', () => { isReady = true })
         await gs.player.ready;
     };
+    var htmlHeight = window.innerWidth
+    var htmlWeight = window.innerHeight
 
     window.onresize = () => {
-        // var canvas = document.getElementById("GameCanvas")
-        // console.log(canvas)
-        // canvas.width = window.innerWidth
-        // console.log(canvas)
-        // console.log('---------')
+        htmlHeight = window.innerWidth
+        htmlWeight = window.innerHeight
 
-        console.log(`resize : ${window.innerWidth} , ${window.innerHeight}`)
+        // console.log(`resize : ${window.innerWidth} , ${window.innerHeight}`)
     }
 </script>
 
