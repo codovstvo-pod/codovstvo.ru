@@ -127,11 +127,8 @@
     window.onresize = () => {
         var canvas = document.getElementById("GameCanvas")
         console.log(canvas)
-        var ctx = canvas.getContext("2d")
-        console.log(ctx)
-
-        // canvas.style.w
-        // canvas.canvas.height = window.innerHeight
+        console.log(canvas.width)
+        canvas.width = window.innerWidth
 
         console.log(`resize : ${window.innerWidth} , ${window.innerHeight}`)
     }
