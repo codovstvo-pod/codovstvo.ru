@@ -122,6 +122,10 @@
         gs = gp
         gs.player.on('ready', () => { isReady = true })
         await gs.player.ready;
+
+        gs.on("pause", () => {
+            WebConnector.pauseGame()
+        })
     };
 
     var htmlHeight = window.innerWidth
@@ -131,10 +135,6 @@
         htmlWeight = window.innerHeight
     }
 
-    gs.on("pause", () => {
-        WebConnector.pauseGame()
-    })
-    
 </script>
 
 </html>
