@@ -116,9 +116,8 @@
 <script type="text/javascript" src="https://cdn.devtodev.com/sdk/web/v2/devtodevsdk.js"></script>
 
 <script>
-    // var devsdk = window.devtodev
     console.log('---')
-    window.devtodev.initialize("2f74e787-e843-0a3b-9a93-fcf8f4208445", { userId: '1', trackingAvailability: true, logLevel: "Debug" })
+    window.devtodev.initialize("2f74e787-e843-0a3b-9a93-fcf8f4208445", { trackingAvailability: true, logLevel: "Debug" })
     console.log('---')
 </script>
 
@@ -130,7 +129,7 @@
     window.onGPInit = async (gp) => {
         gs = gp
         gs.player.on('ready', () => { isReady = true })
-        await gs.player.ready;
+        await gs.player.ready
     };
 
     var htmlHeight = window.innerHeight
