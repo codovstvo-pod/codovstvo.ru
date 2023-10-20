@@ -128,10 +128,12 @@
         gs = gp
         gs.player.on('ready', () => { isReady = true })
         await gs.player.ready
-        console.log(gp.platform.type)
         if (gp.platform.type == 'OK') {
             console.log('OK init')
             window.devtodev.initialize("2f74e787-e843-0a3b-9a93-fcf8f4208445", { trackingAvailability: true, logLevel: "Debug" })
+        } else if (gp.platform.type == 'VK') {
+            console.log('VK init')
+            window.devtodev.initialize("51b5d260-7cce-0db5-b79c-dc4ce49cfc6e", { trackingAvailability: true, logLevel: "Debug" })
         }
     };
 
@@ -141,7 +143,6 @@
         htmlHeight = window.innerHeight
         htmlWeight = window.innerWidth
     }
-
 </script>
 
 </html>
