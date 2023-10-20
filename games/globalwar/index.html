@@ -130,6 +130,7 @@
         await gs.player.ready
         console.log(gp.platform.type)
         if (gp.platform.type == 'OK') {
+            console.log('OK init')
             window.devtodev.initialize("2f74e787-e843-0a3b-9a93-fcf8f4208445", { trackingAvailability: true, logLevel: "Debug" })
         }
     };
