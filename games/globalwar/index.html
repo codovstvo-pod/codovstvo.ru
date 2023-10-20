@@ -117,8 +117,6 @@
 
 <script>
     console.log('---')
-    window.devtodev.initialize("2f74e787-e843-0a3b-9a93-fcf8f4208445", { trackingAvailability: true, logLevel: "Debug" })
-    console.log('---')
 </script>
 
 <script async
@@ -130,6 +128,10 @@
         gs = gp
         gs.player.on('ready', () => { isReady = true })
         await gs.player.ready
+        console.log(gp.platform.type)
+        if (gp.platform.type == 'OK') {
+            window.devtodev.initialize("2f74e787-e843-0a3b-9a93-fcf8f4208445", { trackingAvailability: true, logLevel: "Debug" })
+        }
     };
 
     var htmlHeight = window.innerHeight
