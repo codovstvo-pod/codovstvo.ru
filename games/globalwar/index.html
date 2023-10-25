@@ -167,11 +167,24 @@
         }
     }
 
+    // var htmlHeight = window.innerHeight
+    // var htmlWeight = window.innerWidth
+    // window.onresize = () => {
+    //     htmlHeight = window.innerHeight
+    //     htmlWeight = window.innerWidth
+    // }
+
     var htmlHeight = window.innerHeight
     var htmlWeight = window.innerWidth
     window.onresize = () => {
-        htmlHeight = window.innerHeight
-        htmlWeight = window.innerWidth
+        var canvas = document.getElementById('GameCanvas');
+        // htmlHeight = window.innerHeight
+        // htmlWeight = window.innerWidth
+
+        const newWidth = window.innerWidth.toString() + 'px'
+        const newHeight = window.innerHeight.toString() + 'px'
+        canvas.style.width = newWidth
+        canvas.style.height = newHeight
     }
 </script>
 
