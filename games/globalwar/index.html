@@ -116,10 +116,10 @@
     var isReady = false
 
     window.onGPInit = async (gp) => {
+        gs = gp
         if (gs.platform.type == 'NONE') {
             console.log('plugins skip init')
         } else {
-            gs = gp
             gs.player.on('ready', () => {
                 isReady = true
             })
