@@ -133,6 +133,7 @@
         isLoad = true
         if (gs.platform.type == 'NONE') {
             console.log('plugins skip init')
+            isReady = true
         } else {
             gs.player.on('ready', () => {
                 isReady = true
