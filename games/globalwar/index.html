@@ -106,6 +106,18 @@
             <canvas id="GameCanvas" tabindex="99"></canvas>
         </div>
     </div>
+    <!-- Polyfills bundle. -->
+<script src="src/polyfills.bundle.js" charset="utf-8"> </script>
+
+<!-- SystemJS support. -->
+<script src="src/system.bundle.js" charset="utf-8"> </script>
+
+<!-- Import map -->
+<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
+
+<script>
+    System.import('./index.js').catch(function(err) { console.error(err); })
+</script>
 </body>
 <script type="text/javascript" src="https://cdn.devtodev.com/sdk/web/v2/devtodevsdk.js"></script>
 
@@ -140,6 +152,7 @@
                         applicationVersion: '1',
                     }
                 )
+                console.log('7')
             } else if (gs.platform.type == 'VK') {
                 console.log('VK init')
                 window.devtodev.initialize(
@@ -163,6 +176,7 @@
             } else {
                 console.log('devtodev not init')
             }
+            console.log('10')
         }
     }
 
