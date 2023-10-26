@@ -53,9 +53,10 @@
         }
 
         #GameCanvas {
-            width: 100%;
-            height: 100%;
+            /* width: 100%; */
+            /* height: 100%; */
             background-color: rgba(0, 0, 0, 0);
+            aspect-ratio: auto;
         }
     </style>
     <!-- Top.Mail.Ru counter -->
@@ -68,7 +69,8 @@
 
 <body>
     <div id="GameDiv" style="transform: rotate(0deg);width: 100%;height: 100%;margin: 0px;padding: 0px;">
-        <div id="Cocos3dGameContainer">
+        <div id="Cocos3dGameContainer"
+            style="transform: rotate(0deg);width: 100%;height: 100%;margin: 0px;padding: 0px;">
             <canvas id="GameCanvas" tabindex="99"></canvas>
         </div>
     </div>
