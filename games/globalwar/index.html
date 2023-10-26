@@ -131,19 +131,14 @@
     window.onGPInit = async (gp) => {
         isLoad = true
         gs = gp
-        console.log('1')
         if (gs.platform.type == 'NONE') {
             console.log('plugins skip init')
-            console.log('2')
         } else {
-            console.log('3')
             gs.player.on('ready', () => {
                 console.log('4')
                 isReady = true
             })
-            console.log('5')
             await gs.player.ready
-            console.log('6')
             if (gs.platform.type == 'OK') {
                 console.log('OK init')
                 window.devtodev.initialize(
@@ -154,7 +149,6 @@
                         applicationVersion: '1',
                     }
                 )
-                console.log('7')
             } else if (gs.platform.type == 'VK') {
                 console.log('VK init')
                 window.devtodev.initialize(
@@ -178,7 +172,6 @@
             } else {
                 console.log('devtodev not init')
             }
-            console.log('10')
         }
     }
 
