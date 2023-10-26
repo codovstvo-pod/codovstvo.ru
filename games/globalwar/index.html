@@ -129,13 +129,12 @@
     var isLoad = false
 
     window.onGPInit = async (gp) => {
-        isLoad = true
         gs = gp
+        isLoad = true
         if (gs.platform.type == 'NONE') {
             console.log('plugins skip init')
         } else {
             gs.player.on('ready', () => {
-                console.log('4')
                 isReady = true
             })
             await gs.player.ready
@@ -149,7 +148,6 @@
                         applicationVersion: '1',
                     }
                 )
-                console.log('devtodew')
             } else if (gs.platform.type == 'VK') {
                 console.log('VK init')
                 window.devtodev.initialize(
