@@ -126,8 +126,10 @@
 <script>
     var gs
     var isReady = false
+    var isLoad = false
 
     window.onGPInit = async (gp) => {
+        isLoad = true
         gs = gp
         console.log('1')
         if (gs.platform.type == 'NONE') {
