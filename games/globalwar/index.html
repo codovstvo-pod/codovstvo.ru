@@ -98,6 +98,12 @@
                 alt="Top.Mail.Ru" /></div>
     </noscript>
     <!-- /Top.Mail.Ru counter -->
+
+    <script>
+        var gs
+        var isReady = false
+        var isLoad = false
+    </script>
 </head>
 
 <body>
@@ -124,9 +130,6 @@
 <script async
     src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
 <script>
-    var gs
-    var isReady = false
-    var isLoad = false
     window.onGPInit = async (gp) => {
         gs = gp
         isLoad = true
