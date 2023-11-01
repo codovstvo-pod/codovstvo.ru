@@ -134,8 +134,19 @@
         gs = gp
         isLoad = true
         if (gp.platform.type == 'NONE') {
-            console.log('plugins skip init')
-            isReady = true
+            console.log('-->plugins tested')
+            // gs.player.on('ready', () => {
+            //     isReady = true
+            // })
+            // await gs.player.ready
+            // window.devtodev.initialize(
+            //     'd9e7f34f-6aa6-0583-b040-2eaca9b11240',
+            //     {
+            //         trackingAvailability: true,
+            //         logLevel: 'No Debug',
+            //         applicationVersion: '1',
+            //     }
+            // )
         } else {
             gs.player.on('ready', () => {
                 isReady = true
