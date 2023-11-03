@@ -130,7 +130,9 @@
 <script async
     src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
 <script>
+    сonsole.log('do gpInit')
     window.onGPInit = async (gp) => {
+        сonsole.log('on gpInit')
         gs = gp
         isLoad = true
         if (gp.platform.type == 'NONE') {
