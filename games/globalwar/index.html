@@ -91,6 +91,44 @@
             --safe-bottom: env(safe-area-inset-bottom);
             --safe-left: env(safe-area-inset-left);
         }
+
+        .loader {
+            display: block;
+            position: relative;
+            height: 20px;
+            width: 140px;
+            background-image:
+                linear-gradient(#FFF 20px, transparent 0),
+                linear-gradient(#FFF 20px, transparent 0),
+                linear-gradient(#FFF 20px, transparent 0),
+                linear-gradient(#FFF 20px, transparent 0);
+            background-repeat: no-repeat;
+            background-size: 20px auto;
+            background-position: 0 0, 40px 0, 80px 0, 120px 0;
+            animation: pgfill 1s linear infinite;
+        }
+
+        @keyframes pgfill {
+            0% {
+                background-image: linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+            }
+
+            25% {
+                background-image: linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+            }
+
+            50% {
+                background-image: linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+            }
+
+            75% {
+                background-image: linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+            }
+
+            100% {
+                background-image: linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFDD3C 20px, transparent 0), linear-gradient(#FFDD3C 20px, transparent 0);
+            }
+        }
     </style>
     <!-- Top.Mail.Ru counter -->
     <noscript>
@@ -103,6 +141,10 @@
 <body>
     <div id="GameDiv">
         <div id="Cocos3dGameContainer">
+            <div id="loading" style="width: 100%; height: 100%; background-color: #535676;">
+                <img src="./logo.png" style="margin-left: auto;margin-right: auto; display: block; padding-top: 190;">
+                <span class="loader" style="margin-left: auto;margin-right: auto;"></span>
+            </div>
             <canvas id="GameCanvas" tabindex="99"></canvas>
         </div>
     </div>
@@ -127,7 +169,7 @@
     var gs
     var isReady = false
 
-    
+
     window.onGPInit = async (gp) => {
         gs = gp
         if (gp.platform.type == 'NONE') {
@@ -150,23 +192,23 @@
             })
             await gs.player.ready
             if (gp.platform.type == 'OK') {
-                console.log('OK init')
-                window.devtodev.initialize(
-                    '2f74e787-e843-0a3b-9a93-fcf8f4208445',
-                    {
-                        trackingAvailability: true,
-                        logLevel: 'No Debug',
-                        applicationVersion: '4',
-                    }
-                )
+                // console.log('OK init')
+                // window.devtodev.initialize(
+                //     '2f74e787-e843-0a3b-9a93-fcf8f4208445',
+                //     {
+                //         trackingAvailability: true,
+                //         logLevel: 'No Debug',
+                //         applicationVersion: '5',
+                //     }
+                // )
             } else if (gp.platform.type == 'VK') {
                 console.log('VK init')
                 window.devtodev.initialize(
-                    '51b5d260-7cce-0db5-b79c-dc4ce49cfc6e',
+                    'ak-1ID0cf4Sh2siYjC6tuWvbFH5oELgaJK9',
                     {
                         trackingAvailability: true,
                         logLevel: 'No Debug',
-                        applicationVersion: '4',
+                        applicationVersion: '5',
                     }
                 )
 
@@ -191,6 +233,12 @@
         htmlHeight = window.innerHeight
         htmlWeight = window.innerWidth
     }
+
+
+    function displayBlock() {
+        const block = document.getElementById('loading')
+        block.style.display = "none"
+    } 
 </script>
 
 </html>
