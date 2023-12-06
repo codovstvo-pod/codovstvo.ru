@@ -130,12 +130,6 @@
             }
         }
     </style>
-    <!-- Top.Mail.Ru counter -->
-    <noscript>
-        <div><img src="https://top-fwz1.mail.ru/counter?id=3411642;js=na" style="position:absolute;left:-9999px;"
-                alt="Top.Mail.Ru" /></div>
-    </noscript>
-    <!-- /Top.Mail.Ru counter -->
 </head>
 
 <body>
@@ -148,6 +142,94 @@
             <canvas id="GameCanvas" tabindex="99"></canvas>
         </div>
     </div>
+
+    <script type="text/javascript" src="https://cdn.devtodev.com/sdk/web/v2/devtodevsdk.js"></script>
+
+    <script async
+        src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
+
+    <script>
+        var gs
+        var isReady = false
+
+        const versionApp = '6'
+
+
+        window.onGPInit = async (gp) => {
+            gs = gp
+            if (gp.platform.type == 'NONE') {
+                console.log('-->plugins tested')
+                // gs.player.on('ready', () => {
+                //     isReady = true
+                // })
+                // await gs.player.ready
+                // window.devtodev.initialize(
+                //     'd9e7f34f-6aa6-0583-b040-2eaca9b11240',
+                //     {
+                //         trackingAvailability: true,
+                //         logLevel: 'No Debug',
+                //         applicationVersion: '1,
+                //     }
+                // )
+            } else {
+                gs.player.on('ready', () => {
+                    isReady = true
+                })
+                await gs.player.ready
+                if (gp.platform.type == 'OK') {
+                    // console.log('OK init')
+                    // window.devtodev.initialize(
+                    //     '2f74e787-e843-0a3b-9a93-fcf8f4208445',
+                    //     {
+                    //         trackingAvailability: true,
+                    //         logLevel: 'No Debug',
+                    //         applicationVersion: '5,
+                    //     }
+                    // )
+                } else if (gp.platform.type == 'VK') {
+                    console.log('VK init')
+                    window.devtodev.initialize(
+                        '87c723e8-5afa-0886-82f6-3a4b7b336be3',
+                        {
+                            trackingAvailability: true,
+                            logLevel: 'No Debug',
+                            applicationVersion: versionApp,
+                        }
+                    )
+
+                    var _tmr = window._tmr || (window._tmr = []);
+                    _tmr.push({ id: "3411642", type: "pageView", start: (new Date()).getTime(), pid: gp.player.id, version: versionApp });
+                    _tmr.push({ type: 'setUserID', userid: gp.player.id });
+                    (function (d, w, id) {
+                        if (d.getElementById(id)) return;
+                        var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+                        ts.src = "https://top-fwz1.mail.ru/js/code.js";
+                        var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
+                        if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+                    })(document, window, "tmr-code");
+                } else {
+                    console.log('devtodev not init')
+                }
+            }
+        }
+
+        var htmlHeight = window.innerHeight
+        var htmlWeight = window.innerWidth
+        window.onresize = () => {
+            htmlHeight = window.innerHeight
+            htmlWeight = window.innerWidth
+        }
+
+
+        function displayBlock() {
+            const block = document.getElementById('loading')
+            block.style.display = "none"
+        } 
+    </script>
+    <noscript>
+        <div><img src="https://top-fwz1.mail.ru/counter?id=3411642;js=na" style="position:absolute;left:-9999px;"
+                alt="Top.Mail.Ru" /></div>
+    </noscript>
     <!-- Polyfills bundle. -->
 <script src="src/polyfills.bundle.5adbf.js" charset="utf-8"> </script>
 
@@ -158,87 +240,9 @@
 <script src="src/import-map.4131b.json" type="systemjs-importmap" charset="utf-8"> </script>
 
 <script>
-    System.import('./index.06a00.js').catch(function(err) { console.error(err); })
+    System.import('./index.70890.js').catch(function(err) { console.error(err); })
 </script>
 </body>
-<script type="text/javascript" src="https://cdn.devtodev.com/sdk/web/v2/devtodevsdk.js"></script>
 
-<script async
-    src="https://gamepush.com/sdk/game-score.js?projectId=7214&publicToken=jDPNMWva1RsJ5oJ8hw9i66W4VIFHr6yR&callback=onGPInit"></script>
-<script>
-    var gs
-    var isReady = false
-
-
-    window.onGPInit = async (gp) => {
-        gs = gp
-        if (gp.platform.type == 'NONE') {
-            console.log('-->plugins tested')
-            // gs.player.on('ready', () => {
-            //     isReady = true
-            // })
-            // await gs.player.ready
-            // window.devtodev.initialize(
-            //     'd9e7f34f-6aa6-0583-b040-2eaca9b11240',
-            //     {
-            //         trackingAvailability: true,
-            //         logLevel: 'No Debug',
-            //         applicationVersion: '1',
-            //     }
-            // )
-        } else {
-            gs.player.on('ready', () => {
-                isReady = true
-            })
-            await gs.player.ready
-            if (gp.platform.type == 'OK') {
-                // console.log('OK init')
-                // window.devtodev.initialize(
-                //     '2f74e787-e843-0a3b-9a93-fcf8f4208445',
-                //     {
-                //         trackingAvailability: true,
-                //         logLevel: 'No Debug',
-                //         applicationVersion: '5',
-                //     }
-                // )
-            } else if (gp.platform.type == 'VK') {
-                console.log('VK init')
-                window.devtodev.initialize(
-                    '87c723e8-5afa-0886-82f6-3a4b7b336be3',
-                    {
-                        trackingAvailability: true,
-                        logLevel: 'No Debug',
-                        applicationVersion: '5',
-                    }
-                )
-
-                var _tmr = window._tmr || (window._tmr = []);
-                _tmr.push({ id: "3411642", type: "pageView", start: (new Date()).getTime(), pid: gp.player.id });
-                (function (d, w, id) {
-                    if (d.getElementById(id)) return;
-                    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-                    ts.src = "https://top-fwz1.mail.ru/js/code.js";
-                    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
-                    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-                })(document, window, "tmr-code");
-            } else {
-                console.log('devtodev not init')
-            }
-        }
-    }
-
-    var htmlHeight = window.innerHeight
-    var htmlWeight = window.innerWidth
-    window.onresize = () => {
-        htmlHeight = window.innerHeight
-        htmlWeight = window.innerWidth
-    }
-
-
-    function displayBlock() {
-        const block = document.getElementById('loading')
-        block.style.display = "none"
-    } 
-</script>
 
 </html>
