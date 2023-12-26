@@ -2,11 +2,14 @@ html {
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -16,17 +19,25 @@ canvas {
 
 body {
     margin: 0;
+    background: #151515;
 }
 
 #unity-container {
     width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#unity-canvas-container {
     height: 100%;
 }
 
 #unity-canvas {
     width: 100%;
     height: 100%;
-    background: #151515;
+    aspect-ratio: 9 / 16;
 }
 
 #loading-cover {
