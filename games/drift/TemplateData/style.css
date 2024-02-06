@@ -33,19 +33,12 @@ body, canvas, #canvas {
 #unity-container {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#unity-canvas-container {
-    height: 100%;
 }
 
 #unity-canvas {
     width: 100%;
     height: 100%;
-    aspect-ratio: 9 / 16;
+    background: #151515;
 }
 
 #loading-cover {
